@@ -12,9 +12,10 @@ import vaatteet.Vaate;
 
 public class AdidasVaateTehdas extends VaateTehdas {
     
-    private final String MERKKI = "Adidas";
+    private static final String MERKKI = "Adidas";
+    private static AdidasVaateTehdas INSTANCE;
     
-    public AdidasVaateTehdas() {
+    private AdidasVaateTehdas() {
         List vaatteet = new ArrayList();
         String[] vaateTyypit = {"farmarit", "t-paita", "lippis", "kengät"};
         
@@ -22,6 +23,13 @@ public class AdidasVaateTehdas extends VaateTehdas {
             vaatteet.add(new Vaate(vaateTyyppi, MERKKI));
         }
         super.setVaatteet(vaatteet);
+    }
+    
+    public static AdidasVaateTehdas getInstance(){
+        
+        if(INSTANCE == null) INSTANCE = new AdidasVaateTehdas();
+        
+        return INSTANCE;
     }
     
 }

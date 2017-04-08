@@ -22,12 +22,12 @@ public class AbstractFactoryMain {
         System.out.println("------------------------------------------\n");
         
         System.out.println("Hei, olen nyt insinööri-opiskelija");
-        jasper.pukeudu(new AdidasVaateTehdas());
+        jasper.pukeudu(AdidasVaateTehdas.getInstance());
         jasper.kerroMitaOnPaalla();
         System.out.println("------------------------------------------\n");
         
         System.out.println("Hei, olen nyt valmistunut insinööriksi");
-        jasper.pukeudu(new BossVaateTehdas());
+        jasper.pukeudu(BossVaateTehdas.getInstance());
         jasper.kerroMitaOnPaalla();
         System.out.println("------------------------------------------\n");
     }

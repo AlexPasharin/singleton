@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package factories;
 
 import java.util.ArrayList;
@@ -13,8 +8,10 @@ import vaatteet.Vaate;
 public class BossVaateTehdas extends VaateTehdas {
     
     private final String MERKKI = "Boss";
+    private static BossVaateTehdas INSTANCE;
+
     
-    public BossVaateTehdas() {
+    private BossVaateTehdas() {
         List vaatteet = new ArrayList();
         String[] vaateTyypit = {"farmarit", "t-paita", "lippis", "kengät"};
         
@@ -22,6 +19,13 @@ public class BossVaateTehdas extends VaateTehdas {
             vaatteet.add(new Vaate(vaateTyyppi, MERKKI));
         }
         super.setVaatteet(vaatteet);
+    }
+    
+    public static BossVaateTehdas getInstance(){
+        
+        if(INSTANCE == null) INSTANCE = new BossVaateTehdas();
+        
+        return INSTANCE;
     }
     
 }
